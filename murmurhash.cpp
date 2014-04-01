@@ -32,7 +32,7 @@ uint32_t murmur3_32(void *key, int length, uint32_t seed) {
   // handle remaining (0-3) bytes
   const uint8_t *endBits = (const uint8_t*)(data+blockCnt*4);
   uint32_t tmp = 0;
-  // len%8 is equivalent to len&3 but len&3 should be quicker
+  // len%4 is equivalent to len&3 but len&3 should be quicker
   switch(length&3) {
     case 3: tmp |= endBits[2] << 16;
     case 2: tmp |= endBits[1] << 8;
